@@ -1,6 +1,6 @@
 EventEmitter = require('events').EventEmitter;
 spawn = require('child_process').spawn;
-pty = require('pty.js')
+#pty = require('pty.js')
 
 class LogStream extends EventEmitter
   constructor: (file, opts = {}) ->
