@@ -1,7 +1,7 @@
 Eulogist
 ========
 
-A experiment in realtime log viewing using node.js and websockets.
+An experiment in realtime log viewing using node.js and websockets.
 
 ## Getting Started
 
