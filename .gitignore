@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 node_modules
 .idea
 scratch.js
-=======
-=======
->>>>>>> 9b63bd27f75b52506d51f9c675fb430dc341dd56
 lib-cov
 *.seed
 *.log
@@ -20,7 +15,3 @@ logs
 results
 
 npm-debug.log
-<<<<<<< HEAD
->>>>>>> 9b63bd2... Initial commit
-=======
->>>>>>> 9b63bd27f75b52506d51f9c675fb430dc341dd56
