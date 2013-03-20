@@ -1,3 +1,20 @@
+<<<<<<< HEAD
 node_modules
 .idea
 scratch.js
+=======
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+>>>>>>> 9b63bd2... Initial commit
