@@ -1,1 +1,11 @@
-{ "version": "v0.6.6" }
+{
+    "logs": [{
+        "name": "Web Application",
+        "file": "/some/file",
+        "format": "%d %-5p %-17c{2}.%M:%L %3x - %m%n"
+    }, {
+        "name": "API",
+        "file": "/some/file",
+        "format": "%d %-5p %-17c{2}.%M:%L %3x - %m%n"
+    }]
+}

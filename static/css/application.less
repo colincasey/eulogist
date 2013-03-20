@@ -1,0 +1,349 @@
+@alegreya: 'Alegreya SC', serif;
+@monospace: 'Inconsolata', "Courier New", Courier, monospace;
+
+@keyframes fade {
+  from { opacity: 1.0; }
+  to   { opacity: 0.0; }
+}
+@-moz-keyframes fade {
+  from { opacity: 1.0; }
+  to   { opacity: 0.0; }
+}
+@-webkit-keyframes fade {
+  from { opacity: 1.0; }
+  to   { opacity: 0.0; }
+}
+@-o-keyframes fade {
+  from { opacity: 1.0; }
+  to   { opacity: 0.0; }
+}
+
+.animation(@name, @duration) {
+  animation: @name @duration;
+  -moz-animation: @name @duration;
+  -webkit-animation: @name @duration;
+  -o-animation: @name @duration;
+}
+
+.iteration-count(@count) {
+  animation-iteration-count: @count;
+  -moz-animation-iteration-count: @count;
+  -webkit-animation-iteration-count: @count;
+  -o-animation-iteration-count: @count;
+}
+
+.direction(@direction) {
+  animation-direction: @direction;
+  -moz-animation-direction: @direction;
+  -webkit-animation-direction: @direction;
+  -o-animation-direction: @direction;
+}
+
+.delay(@duration) {
+  animation-delay: @duration;
+  -moz-animation-delay: @duration;
+  -webkit-animation-delay: @duration;
+  -o-animation-delay: @duration;
+}
+
+.timing(@fn) {
+  animation-timing-function: @fn;
+  -moz-animation-timing-function: @fn;
+  -webkit-animation-timing-function: @fn;
+  -o-animation-timing-function: @fn;
+}
+
+.box-orient(@orientation) {
+  box-orient: @orientation;
+  -webkit-box-orient: @orientation;
+}
+
+.hbox {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+}
+
+.hbox > * {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  display: block;
+}
+
+.vbox {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+}
+
+.vbox > * {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  display: block;
+}
+
+.spacer {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+}
+
+.flex(@i) {
+  -webkit-box-flex: @i;
+  -moz-box-flex: @i;
+  box-flex: @i;
+}
+
+.box-group(@i) {
+  -webkit-box-flex-group: @i;
+  -moz-box-flex-group: @i;
+  box-flex-group: @i;
+}
+
+.start {
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  box-pack: start;
+}
+
+.end {
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  box-pack: end;
+}
+
+.center {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+}
+
+html, body, #application, #loading {
+  height: 100%;
+}
+
+#application {
+  .vbox;
+  .start;
+}
+
+#content {
+  .flex(1);
+  border-top: 1px solid #b5b7b8;
+  overflow: auto;
+}
+
+#title {
+  border-bottom: 1px solid #555;
+  background-color: #333;
+  color: #fff;
+}
+
+#status {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+
+  .label {
+    font-size: 13px;
+    font-family: @monospace;
+  }
+
+  &.fade-in {
+    -webkit-transition: opacity 0.5s linear;
+    -moz-transition: opacity 0.5s linear;
+    -o-transition: opacity 0.5s linear;
+    opacity: 1;
+  }
+
+  &.fade-out {
+    transition: opacity 2.0s linear;
+    -webkit-transition: opacity 2.0s linear;
+    -moz-transition: opacity 2.0s linear;
+    -o-transition: opacity 2.0s linear;
+    animation-delay: 2s;
+    -moz-transition-delay: 2s;
+    -webkit-transition-delay: 2s;
+    -o-transition-delay: 2s;
+    opacity: 0;
+  }
+}
+
+#logs {
+  border-top: 1px solid #777;
+  border-bottom: 1px solid #a2a2a2;
+  height: 32px;
+  padding: 1px 0 2px;
+  background-color: #b6b6b6;
+}
+
+#timeline {
+  border-top: 1px solid #949494;
+  border-bottom: 1px solid #949494;
+  height: 100px;
+  background-color: #ececec;
+  margin: 0 2px;
+}
+
+.application-name {
+  font-family: @alegreya;
+  padding: 10px 10px 5px;
+
+  font-size: 50px;
+  letter-spacing: 10px;
+}
+
+.logs {
+  margin-left: 5px;
+
+  .log {
+    padding-right: 5px;
+
+    a {
+      color: #333;
+    }
+
+    &.active a {
+      color: #fff;
+    }
+  }
+}
+
+.entries {
+  margin: 0;
+}
+
+.entries .entry {
+  .hbox;
+  .start;
+  color: #777;
+  line-height: 21px;
+  padding: 4px 5px;
+
+  &:nth-child(even) {
+    background-color: #fff;
+    &.hover { background-color: darken(#f8fafb, 10%); }
+  }
+
+  &:nth-child(odd) {
+    background-color: #f8fafb;
+    &.hover { background-color: darken(#f8fafb, 10%); }
+  }
+
+  &.focus {
+    background-color: #abccef !important;
+  }
+
+  & > * {
+    padding: 0 5px;
+  }
+
+  .location, .time, .status, .timing {
+    font-family: @monospace;
+  }
+
+  .method {
+    width: 50px;
+    text-align: right;
+  }
+
+  .location {
+    .flex(1);
+
+    span {
+      display: inline-block;
+      padding: 0 5px;
+    }
+  }
+
+  .url, .time {
+    color: #000;
+    font-weight: bold;
+  }
+
+  .timing {
+    width: 50px;
+    text-align: right;
+  }
+
+  &.informational .label {
+    background-color: #4cb2d0;
+  }
+
+  &.redirection .label  {
+    background-color: darken(#ccc, 10%);
+  }
+
+  &.client-error .label  {
+    background-color: #ca413b;
+  }
+
+  &.server-error .label  {
+    background-color: #404040;
+  }
+
+  &.long-running .label  {
+    background-color: #f9a022;
+  }
+}
+
+#timeline {
+  rect {
+    fill: transparent;
+    stroke: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.informational {
+      fill: #4cb2d0;
+      &:hover { fill: darken(#4cb2d0, 10%); }
+    }
+
+    &.success {
+      fill: #ccc;
+      stroke: #eee;
+      &:hover { fill: darken(#ccc, 10%); }
+    }
+
+    &.redirection {
+      fill: #f9a022;
+      &:hover { fill: darken(#f9a022, 10%); }
+    }
+
+    &.client-error {
+      fill: #ca413b;
+      &:hover { fill: darken(#ca413b, 10%); }
+    }
+
+    &.server-error {
+      fill: #404040;
+      &:hover { fill: darken(#404040, 10%); }
+    }
+
+    &.long-running {
+      fill: #f9a022;
+      &:hover { fill: darken(#f9a022, 10%); }
+    }
+  }
+}
+

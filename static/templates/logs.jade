@@ -1,0 +1,5 @@
+ul.nav.nav-list
+  li.nav-header Logs
+  each log in logs
+    li
+      a(href="#!/#{log.id}")= log.name

@@ -1,6 +1,25 @@
 extends layout
 
-block content
-	div
-		a(id='sender')='Send a Message'
-		ul(id='receiver')
+block main
+  #application(ng-controller="eulogist")
+    header#title
+      h1.application-name= title
+      #status(ng-controller="status", class="{{animation}}")
+        span(class="label {{statusType}}") {{status}}
+    #logs
+      ul.logs.nav.nav-pills
+        each log in logs
+          li.log
+            a(href="#{log.id}")= log.name
+    timeline
+    #content(eulogist-scroll-to-end eulogist-jump-to-focused)
+      ul.entries
+        li.entry(ng-repeat="message in messages", class="{{message | statusText}}", ng-class="{hover: message.hover, focus: message.focus}")
+          .method
+            span.label {{message.method}}
+          .location
+            span.url "{{message.url}}"
+            span.mvc {{message.handledBy}}
+          .time {{message.requestedOn | date: 'HH:mm:ss' }}
+          .status {{message.status}}
+          .timing {{message.duration}}ms
